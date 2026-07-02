@@ -1,5 +1,5 @@
 import sqlalchemy as sql
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
@@ -8,6 +8,9 @@ class Trip(Base):
 
     # Primary key
     trip_id = sql.Column(sql.Integer, primary_key=True)
+
+    # Relationship to reading
+    readings = relationship("Reading", back_populates="trip")
 
     # PIDs
     avg_rpm = sql.Column(sql.Float)
@@ -34,6 +37,8 @@ class Reading(Base):
     # Foreign key as for trip id
     trip_id = sql.Column(sql.Integer, sql.ForeignKey('trips.trip_id'))
 
+    # Relationship between trip and reading
+    trip = relationship("Trip", back_populates="readings")
     # Timestamp
     timestamp = sql.Column(sql.DateTime)
 
