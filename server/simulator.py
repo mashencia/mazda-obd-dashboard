@@ -12,7 +12,7 @@ session = Session()
 
 # PIDs per trip
 pids = ["rpm", "vehicle_speed", "ect", "maf", "map_kpa",
-        "throttle_position", "oxygen", "fuel_trim",
+        "throttle_position", "o2_sensor", "fuel_trim",
         "ignition_timing_advance", "iat"]
 
 # Insert a trip entity into the session
@@ -40,7 +40,6 @@ def insert_reading(trip, elapsed_seconds):
     reading.ignition_timing_advance = random.uniform(5, 45)
     reading.iat = random.uniform(6, 28)
     session.add(reading)
-    session.commit()
 
     return reading.reading_id
 
@@ -58,5 +57,9 @@ def trip_config(start_time, end_time, num_readings=300):
     for i in range(num_readings):
         insert_reading(trip, i)
 
+    session.commit()
     calculate_averages(trip)
 
+# Entry point
+if __name__ == "__main__":
+    trip_config(datetime.now(), datetime.now() + timedelta(minutes=5))
