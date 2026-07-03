@@ -35,7 +35,7 @@ def insert_reading(trip, elapsed_seconds):
     reading.maf = random.uniform(2, 25)
     reading.map_kpa = random.uniform(20, 50)
     reading.throttle_position = random.uniform(10, 90)
-    reading.oxygen = random.uniform(0.1, 0.9)
+    reading.o2_sensor = random.uniform(0.1, 0.9)
     reading.fuel_trim = random.uniform(-10, 10)
     reading.ignition_timing_advance = random.uniform(5, 45)
     reading.iat = random.uniform(6, 28)
