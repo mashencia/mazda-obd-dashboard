@@ -1,9 +1,8 @@
 from fastapi import FastAPI, Depends
 from database import engine
-from models import Trip, Reading
+from models import Trip, Reading, Base
 from sqlalchemy.orm import sessionmaker
 from schemas import TripResponse, ReadingResponse
-from models import Base
 
 Base.metadata.create_all(engine)
 app = FastAPI()
