@@ -1,8 +1,22 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from database import engine
+from models import Trip, Reading
+from sqlalchemy.orm import sessionmaker
 
 app = FastAPI()
+# Session factory class
+Session = sessionmaker(bind=engine)
 
-@app.get("/")
+# Dependency Injection method for the database instance
+def get_db():
+    db = Session()
+    try:
+        yield db
+    finally:
+        db.close()
+@app.get("/trips")
 
-def root():
-    return {"statement" : "Hello World"}
+def get_trips(db: Session = Depends(get_db)):
+    trips = db.query(Trip).all()
+    return trips
+
