@@ -2,10 +2,10 @@ from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
 
-class Trip(BaseModel):
+class TripResponse(BaseModel):
     class Config:
         from_attributes = True
-        
+
     trip_id: int
     avg_rpm: Optional[float] = None
     avg_vehicle_speed: Optional[float] = None
@@ -21,3 +21,23 @@ class Trip(BaseModel):
     # Duration factors and date
     start_time: datetime
     end_time: datetime
+
+class ReadingResponse(BaseModel):
+    class Config:
+        from_attributes = True
+
+    reading_id: int
+    trip_id: int
+
+    timestamp: datetime
+
+    rpm: Optional[float] = None
+    vehicle_speed: Optional[float] = None
+    ect: Optional[float] = None
+    maf: Optional[float] = None
+    map_kpa: Optional[float] = None
+    throttle_position: Optional[float] = None
+    o2_sensor: Optional[float] = None
+    fuel_trim: Optional[float] = None
+    ignition_timing_advance: Optional[float] = None
+    iat: Optional[float] = None
