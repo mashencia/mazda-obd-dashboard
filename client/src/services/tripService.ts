@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { Trip } from '../types/Trip';
-import { Reading } from '../types/Reading';
+import { Trip } from '../types/trip';
+import { Reading } from '../types/reading';
 
 export const getTrips = async (): Promise<Trip[]> => {
     try {

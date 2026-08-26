@@ -1,11 +1,8 @@
-import React from 'react';
+import React from 'react'
+import DashboardPage from './pages/DashboardPage'
 
 function App() {
-  return (
-    <div className="App">
-      Mazda OBD Dashboard    
-    </div>
-  );
+    return <DashboardPage />
 }
 
-export default App;
+export default App

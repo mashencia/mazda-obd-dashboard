@@ -1,2 +1,2 @@
-export type { Trip } from './Trip';
-export type { Reading } from './Reading';
+export type { Trip } from './trip';
+export type { Reading } from './reading';
