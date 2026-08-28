@@ -7,7 +7,8 @@ const useReadings = (tripId: number) => {
    const [readings, setReadings] = useState<Reading[]>([]);
    const [error, setError] = useState<string | null>(null);
 
-   useEffect(() => {
+    useEffect(() => {
+    if (!tripId) return
     const fetchReadings = async () => {
         try {
             const tripsData = await getReadings(tripId); 

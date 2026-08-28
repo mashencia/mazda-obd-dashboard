@@ -101,3 +101,6 @@ Desktop.ini
 *.zip
 .vercel
 .netlify
+
+# ─── Claude Code ──────────────────────────────────────────────────────────────
+CLAUDE.md

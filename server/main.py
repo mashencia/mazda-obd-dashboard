@@ -6,6 +6,17 @@ from schemas import TripResponse, ReadingResponse
 
 Base.metadata.create_all(engine)
 app = FastAPI()
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Session factory class
 Session = sessionmaker(bind=engine)
 
@@ -16,6 +27,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 @app.get("/trips", response_model=list[TripResponse])
 def get_trips(db: Session = Depends(get_db)):
     trips = db.query(Trip).all()
