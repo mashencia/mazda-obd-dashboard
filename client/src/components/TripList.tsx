@@ -21,8 +21,8 @@ function TripList({ onTripSelect }: TripListProps) {
             {trips.map((trip: Trip) => (
                 <div key={trip.tripId} className="trip-item" onClick={() => onTripSelect(trip)}>
                     <div>{new Date(trip.startTime).toLocaleDateString()}</div>
-                    <div>RPM {trip.avgRpm}</div>
-                    <div>{trip.avgVehicleSpeed}</div>
+                    <div>RPM {trip.avgRpm.toFixed(1)}</div>
+                    <div>{trip.avgVehicleSpeed.toFixed(1)}</div>
                 </div>
             ))}
         </div>
