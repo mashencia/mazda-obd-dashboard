@@ -2,10 +2,13 @@ import React from 'react';
 import PIDTile from './PIDTile';
 import useReadings from '../hooks/useReadings';
 import type { Reading } from '../types';
+import './PIDGrid.css'
 
 interface PIDGridProps {
     tripId: number;
 }
+
+const SPARKLINE_POINTS = 20;
 
 function PIDGrid({ tripId }: PIDGridProps) {
     const { loading, readings, error } = useReadings(tripId);
@@ -24,18 +27,17 @@ function PIDGrid({ tripId }: PIDGridProps) {
     ]
 
     // Loading State
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <div className="pid-grid-message">Loading...</div>;
 
     // Error State
-    if (error) return <div>{error}</div>;
+    if (error) return <div className="pid-grid-message">{error}</div>;
 
     // Success State
     return (
-        <div className="tile-grid">
+        <div className="pid-grid">
             {pids.map((pid) => {
-                const avg = readings.length === 0 ? 0 : readings.reduce((sum, r) =>
-                    sum + (Number(r[pid.key]) || 0), 0
-                ) / readings.length
+                const values = readings.map((r) => Number(r[pid.key]) || 0)
+                const avg = values.length === 0 ? 0 : values.reduce((sum, v) => sum + v, 0) / values.length
 
                 return (
                     <PIDTile
@@ -44,6 +46,7 @@ function PIDGrid({ tripId }: PIDGridProps) {
                         unit={pid.unit}
                         value={avg}
                         status="green"
+                        sparkline={values.slice(-SPARKLINE_POINTS)}
                     />
                 )
             })}

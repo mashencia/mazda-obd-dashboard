@@ -1,0 +1,65 @@
+.pid-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.pid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.pid-name {
+    font-family: 'Michroma', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.pid-unit {
+    font-family: 'Michroma', sans-serif;
+    font-size: 9px;
+    color: var(--text-dim);
+}
+
+.pid-val {
+    font-family: 'Gruppo', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+
+.sparkline {
+    height: 32px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+.spark {
+    flex: 1;
+    border-radius: 1px 1px 0 0;
+    opacity: 0.6;
+}
+
+.spark-ok { background: var(--green); }
+.spark-warn { background: var(--yellow); }
+.spark-alert { background: var(--red); }
+
+.pid-status {
+    font-family: 'Michroma', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.status-ok { color: var(--green); }
+.status-warn { color: var(--yellow); }
+.status-alert { color: var(--red); }

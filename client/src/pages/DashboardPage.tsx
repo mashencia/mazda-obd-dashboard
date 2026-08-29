@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import TripList from '../components/TripList'
 import TripDetail from '../components/TripDetails'
 import PIDGrid from '../components/PIDGrid'
-import HealthIndicator from '../components/HealthIndicator'
+import './DashboardPage.css'
 
 function DashboardPage()
 {
@@ -24,14 +24,15 @@ function DashboardPage()
     return (
         <div className="dashboard">
             <Header />
-            <div className="dashboard-body">
-                <TripList onTripSelect={setSelectedTrip} />
-                <div className="main-panel">
+            <div className="layout">
+                <TripList selectedTripId={selectedTrip?.tripId} onTripSelect={setSelectedTrip} />
+                <div className="main">
                     {selectedTrip && (
                         <>
                             <TripDetail trip={selectedTrip} />
-                            <PIDGrid tripId={selectedTrip.tripId} />
-                            <HealthIndicator healthStatus="green" />
+                            <div className="pid-section">
+                                <PIDGrid tripId={selectedTrip.tripId} />
+                            </div>
                         </>
                     )}
                 </div>
