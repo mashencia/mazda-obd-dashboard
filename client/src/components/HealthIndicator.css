@@ -1,0 +1,21 @@
+.pills {
+    display: flex;
+    gap: 4px;
+}
+
+.pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: 'Michroma', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border: 1px solid transparent;
+    opacity: 0.3;
+}
+
+.pill.active { opacity: 1; }
+
+.pill-g { background: var(--green-bg); color: var(--green); border-color: rgba(34, 197, 94, 0.3); }
+.pill-y { background: var(--yellow-bg); color: var(--yellow); border-color: rgba(245, 158, 11, 0.3); }
+.pill-r { background: var(--red-bg); color: var(--red); border-color: rgba(224, 30, 30, 0.3); }

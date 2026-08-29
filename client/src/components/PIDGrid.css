@@ -1,0 +1,11 @@
+.pid-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.pid-grid-message {
+    font-family: 'Michroma', sans-serif;
+    font-size: 11px;
+    color: var(--text-dim);
+}

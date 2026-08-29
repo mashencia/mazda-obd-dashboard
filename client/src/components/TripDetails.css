@@ -1,0 +1,51 @@
+.detail-strip {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-shrink: 0;
+}
+
+.detail-block {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.detail-label {
+    font-family: 'Michroma', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.detail-val {
+    font-family: 'Gruppo', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.sep {
+    width: 1px;
+    height: 28px;
+    background: var(--border-light);
+}
+
+.health-group {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.health-label-text {
+    font-family: 'Michroma', sans-serif;
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}

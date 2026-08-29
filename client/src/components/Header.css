@@ -1,0 +1,89 @@
+.header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-family: 'Staatliches', cursive;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-stripes {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 20px;
+}
+
+.logo-stripe {
+    width: 5px;
+    height: 20px;
+    border-radius: 1px;
+    background: var(--accent);
+    transform: skewX(-18deg);
+    box-shadow: 0 0 6px rgba(224, 30, 30, 0.8);
+    animation: logo-stripe-pulse 2s ease-in-out infinite;
+}
+
+.logo-stripe:nth-child(2) {
+    animation: logo-stripe-pulse2 2s ease-in-out infinite;
+    animation-delay: 0.15s;
+}
+
+@keyframes logo-stripe-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes logo-stripe-pulse2 {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 0.15; }
+}
+
+.car-badge {
+    background: var(--surface-2);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-family: 'Michroma', sans-serif;
+    font-size: 11px;
+    color: var(--text-mid);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Michroma', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.04em;
+}
